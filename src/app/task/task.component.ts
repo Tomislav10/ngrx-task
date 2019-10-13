@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {AppState} from '../reducers';
-import {variableASelector, variableBSelector} from './selectors/task.selectors';
-import {TaskActions} from './actions/task-action-types';
+import {variableASelector, variableBSelector} from './store/selectors/task.selectors';
+import {TaskActions} from './store/actions/task-action-types';
 
 @Component({
   selector: 'app-task',

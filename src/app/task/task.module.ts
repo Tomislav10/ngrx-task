@@ -3,8 +3,8 @@ import {TaskComponent} from './task.component';
 import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from '@ngrx/store';
-import {taskReducer} from './reducers/task.reducers';
-import {TaskEffects} from './effects/task.effects';
+import {taskReducer} from './store/reducers/task.reducers';
+import {TaskEffects} from './store/effects/task.effects';
 import {EffectsModule} from '@ngrx/effects';
 
 export const taskRoutes: Routes = [

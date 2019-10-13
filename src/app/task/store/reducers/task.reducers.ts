@@ -2,7 +2,7 @@ import {
   createReducer,
   MetaReducer, on
 } from '@ngrx/store';
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 import {TaskActions} from '../actions/task-action-types';
 
 export interface TaskState {
