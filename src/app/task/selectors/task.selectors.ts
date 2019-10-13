@@ -3,7 +3,12 @@ import {TaskState} from '../reducers/task.reducers';
 
 export const selectTaskState = createFeatureSelector<TaskState>('taskState');
 
-export const variablesSelector = createSelector(
+export const variableASelector = createSelector(
   selectTaskState,
-  (task) => task.data
+  (task) => task.variableA
+);
+
+export const variableBSelector = createSelector(
+  selectTaskState,
+  (task) => task.variableB
 );

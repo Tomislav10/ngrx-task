@@ -1,16 +1,17 @@
 import {
-  ActionReducerMap, createReducer,
+  createReducer,
   MetaReducer
 } from '@ngrx/store';
 import {environment} from '../../../environments/environment';
-import {DataModel} from '../model/data.model';
 
 export interface TaskState {
-  data: DataModel;
+  variableA: number;
+  variableB: number;
 }
 
 export const initialTaskState: TaskState = {
-  data: { variableA: -5, variableB: 10}
+  variableA: -5,
+  variableB: 10
 };
 
 export const taskReducer = createReducer(

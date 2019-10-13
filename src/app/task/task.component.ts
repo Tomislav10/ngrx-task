@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {AppState} from '../reducers';
-import {variablesSelector} from './selectors/task.selectors';
+import {variableASelector, variableBSelector} from './selectors/task.selectors';
 
 @Component({
   selector: 'app-task',
@@ -11,8 +11,8 @@ import {variablesSelector} from './selectors/task.selectors';
 })
 export class TaskComponent implements OnInit {
 
-  variableA: number;
-  variableB: number;
+  variableA: Observable<number>;
+  variableB: Observable<number>;
 
   constructor(private store: Store<AppState>) {
 
@@ -24,15 +24,8 @@ export class TaskComponent implements OnInit {
   }
 
   setVariables() {
-    this.store.pipe(select(variablesSelector))
-      .subscribe((variablesData) => {
-        this.variableA = variablesData.variableA;
-        this.variableB = variablesData.variableB;
-      });
-
-    console.log('A', this.variableA);
-    console.log('B', this.variableB);
-
+    this.variableA = this.store.pipe(select(variableASelector));
+    this.variableB = this.store.pipe(select(variableBSelector));
   }
 
 }
