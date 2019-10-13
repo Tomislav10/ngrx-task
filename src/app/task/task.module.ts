@@ -3,15 +3,13 @@ import {TaskComponent} from './task.component';
 import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from '@ngrx/store';
+import {taskReducer} from './reducers/task.reducers';
 
 export const taskRoutes: Routes = [
   { path: '' , redirectTo: '/task', pathMatch: 'full'},
   {
     path: 'task',
-    component: TaskComponent,
-    resolve: {
-      // courses: CoursesResolver
-    }
+    component: TaskComponent
   },
   {
     path: '**',
@@ -26,7 +24,7 @@ export const taskRoutes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(taskRoutes),
-    StoreModule.forFeature('task', taskReducer)
+    StoreModule.forFeature('taskState', taskReducer)
   ],
   exports: [TaskComponent, RouterModule],
   providers: []
