@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {TaskComponent} from './task.component';
 import {RouterModule, Routes} from '@angular/router';
+import {CommonModule} from '@angular/common';
+import {StoreModule} from '@ngrx/store';
 
 export const taskRoutes: Routes = [
   { path: '' , redirectTo: '/task', pathMatch: 'full'},
@@ -22,7 +24,9 @@ export const taskRoutes: Routes = [
     TaskComponent
   ],
   imports: [
+    CommonModule,
     RouterModule.forChild(taskRoutes),
+    StoreModule.forFeature('task', taskReducer)
   ],
   exports: [TaskComponent, RouterModule],
   providers: []
