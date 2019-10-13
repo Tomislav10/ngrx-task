@@ -6,6 +6,7 @@ import {StoreModule} from '@ngrx/store';
 import {taskReducer} from './store/reducers/task.reducers';
 import {TaskEffects} from './store/effects/task.effects';
 import {EffectsModule} from '@ngrx/effects';
+import {TaskChildComponent} from './task-child/task-child.component';
 
 export const taskRoutes: Routes = [
   { path: '' , redirectTo: '/task', pathMatch: 'full'},
@@ -21,7 +22,8 @@ export const taskRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    TaskComponent
+    TaskComponent,
+    TaskChildComponent
   ],
   imports: [
     CommonModule,
