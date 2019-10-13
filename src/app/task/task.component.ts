@@ -42,4 +42,8 @@ export class TaskComponent implements OnInit {
       this.counterSubscribe.unsubscribe();
     }
   }
+
+  reset() {
+    this.store.dispatch(TaskActions.reset());
+  }
 }

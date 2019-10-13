@@ -30,7 +30,14 @@ export const taskReducer = createReducer(
       variableA: state.variableA,
       variableB: state.variableB - 1
     };
-  })
+  }),
+
+  on(TaskActions.reset, (state, action) => {
+    return {
+      variableA: initialTaskState.variableA,
+      variableB: initialTaskState.variableB
+    };
+  }),
 );
 
 

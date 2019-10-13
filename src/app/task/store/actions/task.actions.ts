@@ -12,3 +12,7 @@ export const increase = createAction(
 export const decrease = createAction(
   '[Task page] Decrease'
 );
+
+export const reset = createAction(
+  '[Task page] Reset'
+);
