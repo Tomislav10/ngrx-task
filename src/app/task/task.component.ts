@@ -4,7 +4,6 @@ import {select, Store} from '@ngrx/store';
 import {AppState} from '../reducers';
 import {variableASelector, variableBSelector} from './store/selectors/task.selectors';
 import {TaskActions} from './store/actions/task-action-types';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-task',
@@ -13,7 +12,7 @@ import {map} from 'rxjs/operators';
 })
 export class TaskComponent implements OnInit {
 
-  areadyReset: boolean = true;
+  alreadyReset = true;
 
   counterSubscribe: Subscription;
 
@@ -30,11 +29,9 @@ export class TaskComponent implements OnInit {
 
 
   start() {
-    this.areadyReset = false;
+    this.alreadyReset = false;
     if (!this.counterSubscribe || this.counterSubscribe.closed) {
-      this.counterSubscribe = interval(1000).pipe(
-        map((num) => num)
-      ).subscribe(data => {
+      this.counterSubscribe = interval(1000).subscribe(() => {
         this.store.dispatch(TaskActions.change());
       });
     }
@@ -48,9 +45,9 @@ export class TaskComponent implements OnInit {
 
   reset() {
     this.stop();
-    if (!this.areadyReset) {
+    if (!this.alreadyReset) {
       this.store.dispatch(TaskActions.reset());
     }
-    this.areadyReset = true;
+    this.alreadyReset = true;
   }
 }

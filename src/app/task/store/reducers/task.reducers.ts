@@ -1,8 +1,7 @@
 import {
   createReducer,
-  MetaReducer, on
+  on
 } from '@ngrx/store';
-import {environment} from '../../../../environments/environment';
 import {TaskActions} from '../actions/task-action-types';
 
 export interface TaskState {
@@ -18,27 +17,24 @@ export const initialTaskState: TaskState = {
 export const taskReducer = createReducer(
   initialTaskState,
 
-  on(TaskActions.increase, (state, action) => {
+  on(TaskActions.increase, (state) => {
     return {
       variableA: state.variableA + 1,
       variableB: state.variableB
     };
   }),
 
-  on(TaskActions.decrease, (state, action) => {
+  on(TaskActions.decrease, (state) => {
     return {
       variableA: state.variableA,
       variableB: state.variableB - 1
     };
   }),
 
-  on(TaskActions.reset, (state, action) => {
+  on(TaskActions.reset, () => {
     return {
       variableA: initialTaskState.variableA,
       variableB: initialTaskState.variableB
     };
   }),
 );
-
-
-export const metaReducers: MetaReducer<TaskState>[] = !environment.production ? [] : [];
