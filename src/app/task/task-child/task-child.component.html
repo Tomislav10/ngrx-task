@@ -1,1 +1,5 @@
-RADI test test
+
+<div [ngClass]="(varA | async) < 0 ? 'lower' : 'greater'">{{ varA | async }}</div>
+
+<div [ngClass]="(varB | async) < 0 ? 'lower' : 'greater'">{{ varB | async }}</div>
+

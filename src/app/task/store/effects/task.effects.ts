@@ -14,7 +14,7 @@ export class TaskEffects {
       ofType(TaskActions.change),
       mergeMap(() => {
         console.log('aa');
-        return [TaskActions.increase(), TaskActions.decrease()];
+        return [TaskActions.increase(), TaskActions.decrease(), TaskActions.decrease()];
       })
     )
   );
