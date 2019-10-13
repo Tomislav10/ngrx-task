@@ -1,6 +1,14 @@
-import {createAction, props} from '@ngrx/store';
+import {createAction} from '@ngrx/store';
 
 
 export const change = createAction(
   '[Task page] Change'
+);
+
+export const increase = createAction(
+  '[Task page] Increase'
+);
+
+export const decrease = createAction(
+  '[Task page] Decrease'
 );

@@ -27,7 +27,7 @@ export const taskRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(taskRoutes),
     StoreModule.forFeature('taskState', taskReducer),
-    EffectsModule.forFeature([TaskEffects])
+    EffectsModule.forRoot([TaskEffects])
   ],
   exports: [TaskComponent, RouterModule],
   providers: []
