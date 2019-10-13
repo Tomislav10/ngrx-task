@@ -13,6 +13,8 @@ import {map} from 'rxjs/operators';
 })
 export class TaskComponent implements OnInit {
 
+  areadyReset: boolean = true;
+
   counterSubscribe: Subscription;
 
   variableA: Observable<number>;
@@ -28,6 +30,7 @@ export class TaskComponent implements OnInit {
 
 
   start() {
+    this.areadyReset = false;
     if (!this.counterSubscribe || this.counterSubscribe.closed) {
       this.counterSubscribe = interval(1000).pipe(
         map((num) => num)
@@ -44,6 +47,10 @@ export class TaskComponent implements OnInit {
   }
 
   reset() {
-    this.store.dispatch(TaskActions.reset());
+    this.stop();
+    if (!this.areadyReset) {
+      this.store.dispatch(TaskActions.reset());
+    }
+    this.areadyReset = true;
   }
 }

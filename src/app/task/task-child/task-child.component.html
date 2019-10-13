@@ -1,5 +1,9 @@
 
-<div [ngClass]="(varA | async) < 0 ? 'lower' : 'greater'">{{ varA | async }}</div>
+<div [ngClass]="(varA | async) < 0 ? 'lower' : ((varA | async) === 0 ? 'equal' : 'greater')">
+  {{ varA | async }}
+</div>
 
-<div [ngClass]="(varB | async) < 0 ? 'lower' : 'greater'">{{ varB | async }}</div>
+<div [ngClass]="(varB | async) < 0 ? 'lower' : ((varB | async) === 0 ? 'equal' : 'greater')">
+  {{ varB | async }}
+</div>
 
